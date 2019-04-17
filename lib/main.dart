@@ -51,9 +51,11 @@ class MyApp extends StatelessWidget {
     final textSection = Container(
       padding: const EdgeInsets.all(32.0),
       child: Text(
-        '''
-Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, leads you to the lake, which warms to 20 degrees Celsius in the summer. Activities enjoyed here include rowing, and riding the summer toboggan run.
-          ''',
+        '''Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. 
+        Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. 
+        A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, 
+        leads you to the lake, which warms to 20 degrees Celsius in the summer. 
+        Activities enjoyed here include rowing, and riding the summer toboggan run.''',
         softWrap: true,
       ),
     );
@@ -90,9 +92,7 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
 //https://mp.weixin.qq.com/s/V0cL9bSTM65HTIJ4CU4Cow
 
 Widget _buildButtonColumn(BuildContext context, IconData icon, String label) {
-  final color = Theme
-      .of(context)
-      .primaryColor;
+  final color = Theme.of(context).primaryColor;
 
   return Column(
     // main axis 跟我们前面提到的 cross axis 相对应，对 Column 来说，指的就是竖直方向。
@@ -206,6 +206,7 @@ class TestExpanded extends StatelessWidget {
           child: RaisedButton(
             child: Text("btn1"),
             color: Colors.red,
+            onPressed: () {},
           ),
         ),
         Expanded(
@@ -213,6 +214,7 @@ class TestExpanded extends StatelessWidget {
           child: RaisedButton(
             child: Text("btn2"),
             color: Colors.blue,
+            onPressed: () {},
           ),
         )
       ],
@@ -340,7 +342,7 @@ class RandomWordsState extends State<RandomWords> {
       ),
       onTap: () {
         setState(
-              () {
+          () {
             if (alreadySaved) {
               _saved.remove(pair);
             } else {
@@ -359,7 +361,7 @@ class RandomWordsState extends State<RandomWords> {
       new MaterialPageRoute(
         builder: (context) {
           final tiles = _saved.map(
-                (pair) {
+            (pair) {
               return new ListTile(
                 title: new Text(
                   pair.asPascalCase,
