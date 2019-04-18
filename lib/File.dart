@@ -1,6 +1,6 @@
 import 'dart:io';
 
-//博客：https://mp.weixin.qq.com/s/sNfRNDzzIcCpFWDmQ6PRXg
+//文件操作：https://mp.weixin.qq.com/s/sNfRNDzzIcCpFWDmQ6PRXg
 
 //异步版本
 void foo() async {

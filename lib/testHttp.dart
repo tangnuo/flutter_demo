@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 //集成了支持json、utf-8等数据格式的编码和解码器
 //集成了File, socket, HTTP等服务应用的IO库
 
-//博客：https://segmentfault.com/a/1190000013712168
+//网络请求：https://segmentfault.com/a/1190000013712168
 
 void main() {
   runApp(new MyApp());

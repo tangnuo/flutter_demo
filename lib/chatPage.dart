@@ -1,4 +1,4 @@
-//https://segmentfault.com/a/1190000013712300
+//聊天页面：https://segmentfault.com/a/1190000013712300
 import 'package:flutter/material.dart';
 
 //程序入口
@@ -6,7 +6,7 @@ void main() {
   runApp(new FriendlychatApp());
 }
 
-const String _name = "CYC"; //聊天帐号昵称
+const String _name = "caowj"; //聊天帐号昵称
 
 class FriendlychatApp extends StatelessWidget {
   @override
