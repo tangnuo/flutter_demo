@@ -1,6 +1,7 @@
 //聊天页面：https://segmentfault.com/a/1190000013712300
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/chatPage.dart';
+import 'package:flutter_demo/the_sample_index.dart';
 
 //程序入口
 void main() {
@@ -18,14 +19,37 @@ class MainApp extends StatelessWidget {
         title: Text("主页面"),
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //跳转聊天页面
-              return new FriendlychatApp();
-            }));
-          },
-          child: Text("聊天"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //跳转聊天页面
+                  return new FriendlychatApp();
+                }));
+              },
+              child: Text("聊天"),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //跳转聊天页面
+                  return new SampleIndex();
+                }));
+              },
+              child: Text("Flutter中文网示例"),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //跳转聊天页面
+                  return new FriendlychatApp();
+                }));
+              },
+              child: Text("其他"),
+            )
+          ],
         ),
       ),
     );
