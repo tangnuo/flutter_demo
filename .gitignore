@@ -69,3 +69,10 @@
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 /.gradle/
+
+#自定义忽略文件（注解生成文件、包管理文件）
+**/*.r.dart
+**/*.m.dart
+**/*.g.dart
+**/pubspec.lock
+**/.flutter-plugins-dependencies

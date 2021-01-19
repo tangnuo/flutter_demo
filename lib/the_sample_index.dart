@@ -1,8 +1,9 @@
 //聊天页面：https://segmentfault.com/a/1190000013712300
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/the_sample_shopping.dart';
 import 'package:flutter_demo/the_sample1.dart';
 import 'package:flutter_demo/the_sample_namer.dart';
+import 'package:flutter_demo/the_sample_network_image.dart';
+import 'package:flutter_demo/the_sample_shopping.dart';
 
 //程序入口
 // void main() {
@@ -91,6 +92,17 @@ class SampleIndex extends StatelessWidget {
                 }));
               },
               child: Text("7、ShoppingList"),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //跳转图片加载
+                  // return ImageApp();
+                  // return ImageApp2();
+                  return ImageApp3();
+                }));
+              },
+              child: Text("8、显示网络图片"),
             )
           ],
         ),
