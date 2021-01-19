@@ -107,3 +107,60 @@ class LongListApp extends StatelessWidget {
     );
   }
 }
+
+/// 不同类型的子项创建列表
+class MixListApp extends StatelessWidget {
+  final List<ListItem> items;
+
+  MixListApp({Key key, @required this.items}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final title = 'Mix List';
+    return new MaterialApp(
+      title: title,
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text(title),
+        ),
+        body: new ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+
+            if (item is HeadingItem) {
+              return new ListTile(
+                title: new Text(
+                  item.heading,
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+              );
+            } else if (item is MessageItem) {
+              return new ListTile(
+                title: new Text(item.sender),
+                subtitle: new Text(item.body),
+              );
+            } else {
+              return null;
+            }
+          },
+        ),
+      ),
+    );
+  }
+}
+
+abstract class ListItem {}
+
+class HeadingItem implements ListItem {
+  final String heading;
+
+  HeadingItem(this.heading);
+}
+
+class MessageItem implements ListItem {
+  final String sender;
+  final String body;
+
+  MessageItem(this.sender, this.body);
+}

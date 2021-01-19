@@ -49,7 +49,7 @@ class SampleIndex extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: new  RaisedButton(
+              title: new RaisedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     //跳转聊天页面
@@ -71,7 +71,7 @@ class SampleIndex extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: new  RaisedButton(
+              title: new RaisedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     //跳转聊天页面
@@ -82,7 +82,7 @@ class SampleIndex extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: new  RaisedButton(
+              title: new RaisedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     //跳转聊天页面
@@ -93,7 +93,7 @@ class SampleIndex extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: new  RaisedButton(
+              title: new RaisedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     //跳转聊天页面
@@ -110,7 +110,7 @@ class SampleIndex extends StatelessWidget {
               ),
             ),
             ListTile(
-              title:  RaisedButton(
+              title: RaisedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     //跳转图片加载
@@ -129,10 +129,18 @@ class SampleIndex extends StatelessWidget {
                     //跳转List示例
                     // return BasicListApp();
                     // return HorizontalListApp();
-                    return LongListApp(
-                      items: new List<String>.generate(
-                          100, (index) => "Item $index"),
+
+                    // List<String> items = new List<String>.generate(
+                    //     100, (index) => "Item $index");
+                    // return LongListApp(items: items);
+
+                    List<ListItem> items = new List<ListItem>.generate(
+                      100,
+                      (i) => i % 6 == 0
+                          ? new HeadingItem("Heading $i")
+                          : new MessageItem("Sender $i", "Message body $i"),
                     );
+                    return MixListApp(items: items);
                   }));
                 },
                 child: Text("9、List示例"),
