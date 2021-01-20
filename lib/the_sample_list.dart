@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
-/// 基本List
+/// 1、基本List
 class BasicListApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class BasicListApp extends StatelessWidget {
   }
 }
 
-///创建一个水平list
+/// 2、创建一个水平list
 class HorizontalListApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -79,9 +79,11 @@ class HorizontalListApp extends StatelessWidget {
   }
 }
 
-///长列表
+/// 3、长列表
 class LongListApp extends StatelessWidget {
   final List<String> items;
+  // List<String> items = new List<String>.generate(
+  //     100, (index) => "Item $index");
 
   LongListApp({Key key, @required this.items}) : super(key: key);
 
@@ -108,9 +110,15 @@ class LongListApp extends StatelessWidget {
   }
 }
 
-/// 不同类型的子项创建列表
+/// 4、不同类型的子项创建列表
 class MixListApp extends StatelessWidget {
   final List<ListItem> items;
+  // List<ListItem> items = new List<ListItem>.generate(
+  //   100,
+  //   (i) => i % 6 == 0
+  //       ? new HeadingItem("Heading $i")
+  //       : new MessageItem("Sender $i", "Message body $i"),
+  // );
 
   MixListApp({Key key, @required this.items}) : super(key: key);
 
@@ -163,4 +171,32 @@ class MessageItem implements ListItem {
   final String body;
 
   MessageItem(this.sender, this.body);
+}
+
+/// 5、网格列表
+class GridListApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final title = 'Grid List';
+
+    return new MaterialApp(
+      title: title,
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text(title),
+        ),
+        body: new GridView.count(
+          crossAxisCount: 3,
+          children: new List.generate(100, (index) {
+            return new Center(
+              child: new Text(
+                'Item $index',
+                style: Theme.of(context).textTheme.headline5,
+              ),
+            );
+          }),
+        ),
+      ),
+    );
+  }
 }

@@ -7,7 +7,7 @@ var imageUrl =
 
 var imageUrl2 = "http://via.placeholder.com/350x150";
 
-///显示来自网上的图片
+/// 1、显示来自网上的图片
 class ImageApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class ImageApp extends StatelessWidget {
   }
 }
 
-///用占位符淡入图片
+/// 2、用占位符淡入图片
 class ImageApp2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class ImageApp2 extends StatelessWidget {
   }
 }
 
-///使用缓存图片
+/// 3、使用缓存图片
 class ImageApp3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
