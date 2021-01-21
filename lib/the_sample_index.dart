@@ -5,6 +5,7 @@ import 'package:flutter_demo/the_sample_handling.dart' as handling;
 import 'package:flutter_demo/the_sample_list.dart';
 import 'package:flutter_demo/the_sample_namer.dart';
 import 'package:flutter_demo/the_sample_navigation.dart';
+import 'package:flutter_demo/the_sample_network.dart';
 import 'package:flutter_demo/the_sample_network_image.dart';
 import 'package:flutter_demo/the_sample_shopping.dart';
 
@@ -258,17 +259,27 @@ class SampleIndex extends StatelessWidget {
               ),
             ),
             ListTile(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  // return handling.GestureDemoApp();
-                  // return handling.InkWellDemoApp();
-                  return handling.DismissingApp();
-                }));
-              },
-              title: new Text('10、手势处理'),
+              title: new RaisedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    // return handling.GestureDemoApp();
+                    // return handling.InkWellDemoApp();
+                    return handling.DismissingApp();
+                  }));
+                },
+                child: Text("10、手势处理"),
+              ),
             ),
             ListTile(
-              title: new Text('11、Phone'),
+              title: new RaisedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    // return new HttpApp();
+                    return new WebSocketApp();
+                  }));
+                },
+                child: Text("11、Http 网络请求"),
+              ),
             ),
             ListTile(
               title: new RaisedButton(
