@@ -4,6 +4,7 @@ import 'package:flutter_demo/the_sample1.dart';
 import 'package:flutter_demo/the_sample_handling.dart' as handling;
 import 'package:flutter_demo/the_sample_list.dart';
 import 'package:flutter_demo/the_sample_namer.dart';
+import 'package:flutter_demo/the_sample_navigation.dart';
 import 'package:flutter_demo/the_sample_network_image.dart';
 import 'package:flutter_demo/the_sample_shopping.dart';
 
@@ -14,8 +15,6 @@ import 'package:flutter_demo/the_sample_shopping.dart';
 //     home: new SampleIndex(),
 //   ));
 // }
-
-
 
 // class SampleIndex extends StatelessWidget {
 //   @override
@@ -129,7 +128,6 @@ import 'package:flutter_demo/the_sample_shopping.dart';
 //   }
 // }
 
-
 class SampleIndex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -186,7 +184,9 @@ class SampleIndex extends StatelessWidget {
               title: new RaisedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return new FirstScreen();
+                    // return new FirstScreen();
+                    // return new PassingDataApp();
+                    return new NavigationApp();
                   }));
                 },
                 child: Text("5、页面跳转"),

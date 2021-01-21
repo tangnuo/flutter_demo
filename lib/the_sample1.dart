@@ -24,15 +24,9 @@ void main() {
   // ));
 
   //示例5：根据用户输入改变widget
-  // runApp(new MaterialApp(
-  //   title: 'Flutter Tutorial',
-  //   home: new MyCounter(),
-  // ));
-
-  //示例6：页面跳转
   runApp(new MaterialApp(
-    title: '页面跳转',
-    home: new FirstScreen(),
+    title: 'Flutter Tutorial',
+    home: new MyCounter(),
   ));
 }
 
@@ -254,47 +248,5 @@ class _MyCounterState extends State<MyCounter> {
       new CounterIncrementor(onPressed: _increment),
       new CounterDisplay(count: _counter),
     ]);
-  }
-}
-
-/////////////////////////////////////////////////////
-
-class FirstScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("First Screen"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return SecondScreen();
-            }));
-          },
-          child: Text("next screen"),
-        ),
-      ),
-    );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Second Screen"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text("back"),
-        ),
-      ),
-    );
   }
 }
