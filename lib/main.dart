@@ -1,6 +1,7 @@
 //聊天页面：https://segmentfault.com/a/1190000013712300
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/chatPage.dart';
+import 'package:flutter_demo/the_lws_index.dart';
 import 'package:flutter_demo/the_sample_index.dart';
 
 //程序入口
@@ -44,10 +45,10 @@ class MainApp extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   //跳转聊天页面
-                  return new FriendlychatApp();
+                  return LwsSampleIndex();
                 }));
               },
-              child: Text("其他"),
+              child: Text("刘望舒Flutter"),
             )
           ],
         ),

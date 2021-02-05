@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/the_sample1.dart';
 import 'package:flutter_demo/the_sample_handling.dart' as handling;
+import 'package:flutter_demo/the_sample_layout.dart';
 import 'package:flutter_demo/the_sample_list.dart';
 import 'package:flutter_demo/the_sample_namer.dart';
 import 'package:flutter_demo/the_sample_navigation.dart';
@@ -275,7 +276,8 @@ class SampleIndex extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     // return new HttpApp();
-                    return new WebSocketApp();
+                    // return new WebSocketApp();
+                    return new DioApp();
                   }));
                 },
                 child: Text("11、Http 网络请求"),
@@ -285,10 +287,10 @@ class SampleIndex extends StatelessWidget {
               title: new RaisedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return new MyScaffold();
+                    return new MyLayoutApp();
                   }));
                 },
-                child: Text("12、基础 Widget 自由组合"),
+                child: Text("12、构建布局"),
               ),
             ),
           ],

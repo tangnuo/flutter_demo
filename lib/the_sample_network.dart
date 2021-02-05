@@ -8,6 +8,8 @@ import 'package:flutter/foundation.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+import 'package:dio/dio.dart' as dio;
+
 /// 1、从互联网上获取数据
 class Album {
   final int userId;
@@ -180,4 +182,95 @@ class _MyHomePageState extends State<MyHomePage> {
     widget.channel.sink.close();
     super.dispose();
   }
+}
+
+/// 4、Flutter 请求网络数据时显示加载中
+/// https://blog.csdn.net/yuzhiqiang_1993/article/details/89155870
+
+class DioApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '新闻列表',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: _MyHomePage(title: '新闻列表'),
+    );
+  }
+}
+
+class _MyHomePage extends StatefulWidget {
+  final String title;
+
+  const _MyHomePage({Key key, this.title}) : super(key: key);
+
+  @override
+  // State<_MyHomePage> createState() => _MyHomePageState2();
+  _MyHomePageState2 createState() => _MyHomePageState2();
+}
+
+class _MyHomePageState2 extends State<_MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: FutureBuilder(
+        future: _getNews().then((result) {
+          print("接口返回的数据是:$result");
+        }).whenComplete(() {
+          print("异步任务处理完成");
+        }).catchError((error) {
+          print("出现异常了：$error");
+        }),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            dio.Response response = snapshot.data;
+            return Text('${response.data.toString()}');
+          } else {
+            return LoadingWidget();
+          }
+        },
+      ),
+    );
+  }
+}
+
+
+class LoadingWidget extends StatelessWidget {
+  const LoadingWidget({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: FractionalOffset.center,
+      child: CircularProgressIndicator(),
+    );
+  }
+}
+
+
+/// 请求接口获取数据
+/// http://v.juhe.cn/toutiao/index?type=keji&key=4c52313fc9247e5b4176aed5ddd56ad7
+Future<dio.Response> _getNews() async {
+  await Future.delayed(Duration(seconds: 3), () {
+    print('延时3秒后请求数据');
+  });
+
+  String url = "http://v.juhe.cn/toutiao/index";
+  String key = "4c52313fc9247e5b4176aed5ddd56ad7";
+  String type = "keji";
+
+  print("开始请求数据");
+
+  dio.Response response =
+      await dio.Dio().get(url, queryParameters: {"type": type, "key": key});
+
+  print("请求完成");
+
+  return response;
 }
