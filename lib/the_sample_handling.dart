@@ -131,3 +131,39 @@ class DismissingApp extends StatelessWidget {
     );
   }
 }
+
+
+class DismissibleWidget2 extends StatelessWidget {
+  final List<String> items;
+
+  DismissibleWidget2({@required this.items});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Dismissible示例'),
+        ),
+        body: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return Dismissible(
+              key: Key(item),
+              onDismissed: (direction) {
+                items.removeAt(index);
+                print(index);
+              },
+              child: ListTile(
+                leading: Icon(Icons.access_time),
+                title: Text('${items[index]}'),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}

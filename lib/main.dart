@@ -48,7 +48,7 @@ class MainApp extends StatelessWidget {
                   return LwsSampleIndex();
                 }));
               },
-              child: Text("刘望舒Flutter"),
+              child: Text("LWS-Flutter"),
             )
           ],
         ),
