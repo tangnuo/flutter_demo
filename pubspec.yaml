@@ -54,6 +54,9 @@ flutter:
 
   assets:
     - images/6466.jpg
+    - images/yuner1.jpg
+    - images/yuner2.jpg
+    - json/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

@@ -9,10 +9,11 @@ import 'package:flutter/material.dart';
 //网络请求：https://segmentfault.com/a/1190000013712168
 
 void main() {
-  runApp(new MyApp());
+  runApp(new HttpClientApp());
 }
 
-class MyApp extends StatelessWidget {
+/// HttpClient网络请求示例
+class HttpClientApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

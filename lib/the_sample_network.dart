@@ -1,14 +1,13 @@
-import 'dart:convert';
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:dio/dio.dart' as dio;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter/foundation.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
-
-import 'package:dio/dio.dart' as dio;
 
 /// 1、从互联网上获取数据
 class Album {
@@ -238,7 +237,6 @@ class _MyHomePageState2 extends State<_MyHomePage> {
   }
 }
 
-
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({
     Key key,
@@ -253,7 +251,6 @@ class LoadingWidget extends StatelessWidget {
   }
 }
 
-
 /// 请求接口获取数据
 /// http://v.juhe.cn/toutiao/index?type=keji&key=4c52313fc9247e5b4176aed5ddd56ad7
 Future<dio.Response> _getNews() async {
@@ -267,10 +264,26 @@ Future<dio.Response> _getNews() async {
 
   print("开始请求数据");
 
-  dio.Response response =
-      await dio.Dio().get(url, queryParameters: {"type": type, "key": key});
+  dio.Response response = await dio.Dio()
+      .get(url, queryParameters: {"type": type, "key": key}); //GET请求
 
-  print("请求完成");
+//   Response response;
+  //1、GET请求：
+//   response=await dio.get("/test?id=3&name=liuwangshu")
+//   print(response.data.toString());
+// 2、GET带参数请求：
+//   response=await dio.get("/test",data:{"id":3,"name":"liuwangshu"})
+//   print(response.data.toString());
+  //3、POST请求
+  // response=await dio.post("/test",data:{"id":3,"name":"liuwangshu"})
+  //4、FormData请求
+  // FormData formData = new FormData.from({
+  //   "name": "liuwangshu",
+  //   "age": 18,
+  // });
+  // response = await dio.post("/info", data: formData);
+
+  print("请求完成：" + response.data.toString());
 
   return response;
 }
