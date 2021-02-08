@@ -4,6 +4,7 @@ import 'package:flutter_demo/the_lws_basic_widget.dart';
 import 'package:flutter_demo/the_lws_gesture.dart';
 import 'package:flutter_demo/the_lws_layout.dart';
 import 'package:flutter_demo/the_lws_navigation.dart';
+import 'package:flutter_demo/the_lws_platform_channel.dart';
 import 'package:flutter_demo/the_lws_resource.dart';
 import 'package:flutter_demo/the_lws_routes.dart';
 import 'package:flutter_demo/the_lws_scrolling.dart';
@@ -96,11 +97,31 @@ class LwsSampleIndex extends StatelessWidget {
             ListTile(
               title: RaisedButton(
                 child: Text('7、路由'),
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
                     // return LwsRoutesApp();
                     // return LwsRoutesApp2();
                     return LwsRoutesApp3();
+                  }));
+                },
+              ),
+            ),
+            ListTile(
+              title: RaisedButton(
+                child: Text('8、Flutter调用Android'),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return LwsPlatformApp1(); // Flutter调用Android
+                  }));
+                },
+              ),
+            ),
+            ListTile(
+              title: RaisedButton(
+                child: Text('9、Android调用Flutter'),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return LwsPlatformApp2(); // Android调用Flutter
                   }));
                 },
               ),

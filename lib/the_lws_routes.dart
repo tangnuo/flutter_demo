@@ -132,7 +132,7 @@ class FirstPage3 extends StatelessWidget {
       arguments: CustomArgumnets('Android进阶之光'),
     ); // 传参
 
-    print("参数："+customArgumnets.content);
+    print("页面回参："+customArgumnets.content);
   }
 }
 
